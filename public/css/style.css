@@ -1,10 +1,24 @@
 @font-face {
+    font-family: Roboto Condensed;
+    src: url(../fonts/RobotoCondensed-VariableFont_wght.ttf);
+}
+
+@font-face {
     font-family: Playfair Display;
     src: url(../fonts/PlayfairDisplay-VariableFont_wght.ttf);
 }
 
+:root {
+    --lighest: #f6f5f2; /* https://colorhunt.co/palette/f6f5f2f0ebe3f3d0d7ffefef */
+    --light: #f0ebe3; /* https://colorhunt.co/palette/f6f5f2f0ebe3f3d0d7ffefef */
+    --dark: #8d7b68; /* https://colorhunt.co/palette/8d7b68a4907cc8b6a6f1dec9 */
+    --darkest: #322c2b; /* https://colorhunt.co/palette/e4c59eaf8260803d3b322c2b */
+}
+
 body {
-    background-color: "#f6f5f2";
+    background-color: var(--lighest);
+    color: var(--darkest);
+    font-family: Roboto Condensed;
 }
 
 h1 {
@@ -15,23 +29,34 @@ h1 {
 }
 
 ul {
-    background-color: #f0ebe3;
+    background-color: var(--light);
     display: flex;
+    height: 1px;
     justify-content: center;
     list-style-type: none;
+    margin-bottom: 32px;
+    margin-top: 32px;
 }
 
 li a {
-    color: black;
+    background-color: var(--lighest);
     display: block;
-    padding: 14px 16px;
+    font-weight: 300;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
     text-decoration: none;
     text-transform: lowercase;
+    top: -8px;
+    transition: color .5s;
 }
 
 li a.active, li a:hover {
+    color: var(--dark);
     cursor: pointer;
-    background-color: #eee7da;
+    transition: color .5s;
 }
 
 li a.active {
