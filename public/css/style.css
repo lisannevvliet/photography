@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Playfair Display;
+    src: url(../fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+body {
+    background-color: "#f6f5f2";
+}
+
+h1 {
+    font-family: Playfair Display;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+ul {
+    background-color: #f0ebe3;
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+li a {
+    color: black;
+    display: block;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+li a.active, li a:hover {
+    cursor: pointer;
+    background-color: #eee7da;
+}
+
+li a.active {
+    cursor: default;
+}
+
+div {
+    column-count: 5;
+    column-fill: balance;
+    column-gap: 8px;
+    line-height: 0;
+}
+
+div img {
+    margin-bottom: 4px;
+    margin-top: 4px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    div {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 425px) {
+    div {
+        column-count: 1;
+    }
+}
