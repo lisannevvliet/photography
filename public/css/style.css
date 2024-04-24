@@ -10,64 +10,82 @@
 
 :root {
     --lightest-alpha: rgba(246, 245, 242, .75); /* https://colorhunt.co/palette/f6f5f2f0ebe3f3d0d7ffefef */
-    --lighest: #f6f5f2; /* https://colorhunt.co/palette/f6f5f2f0ebe3f3d0d7ffefef */
+    --lightest: #f6f5f2; /* https://colorhunt.co/palette/f6f5f2f0ebe3f3d0d7ffefef */
     --light: #f0ebe3; /* https://colorhunt.co/palette/f6f5f2f0ebe3f3d0d7ffefef */
     --dark: #8d7b68; /* https://colorhunt.co/palette/8d7b68a4907cc8b6a6f1dec9 */
     --darkest: #322c2b; /* https://colorhunt.co/palette/e4c59eaf8260803d3b322c2b */
 }
 
 body {
-    background-color: var(--lighest);
-    color: var(--darkest);
+    background-color: var(--lightest);
     font-family: Roboto Condensed;
 }
 
-h1 {
+body, h1 a, li a {
+    color: var(--darkest);
+}
+
+h1, h2 {
     font-family: Playfair Display;
     font-weight: normal;
     text-align: center;
     text-transform: uppercase;
 }
 
+h1 a {
+    text-decoration: none;
+}
+
 ul {
+    align-items: center;
     background-color: var(--light);
     display: flex;
     height: 1px;
     justify-content: center;
     list-style-type: none;
-    margin-bottom: 32px;
-    margin-top: 32px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
-li a {
-    background-color: var(--lighest);
+ul li a {
+    background-color: var(--lightest);
     display: block;
     font-weight: 300;
     margin-left: 8px;
     margin-right: 8px;
     padding-left: 8px;
     padding-right: 8px;
-    position: relative;
     text-decoration: none;
     text-transform: lowercase;
-    top: -8px;
-    transition: color .5s;
+    transition: color .4s;
 }
 
-li a.active, li a:hover {
+ul li a.active, li a:hover {
     color: var(--dark);
     cursor: pointer;
-    transition: color .5s;
+    transition: color .4s;
 }
 
-li a.active {
+ul li a.active {
     cursor: default;
+    pointer-events: none;
+}
+
+h2 {
+    text-transform: none;
+}
+
+p {
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 div.images {
     column-count: 5;
     column-gap: 8px;
     line-height: 0;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 img {
@@ -77,12 +95,20 @@ img {
 div.images img {
     margin-bottom: 4px;
     margin-top: 4px;
+    transition: opacity .4s;
     width: 100%;
+}
+
+div.images img:hover {
+    cursor: pointer;
+    opacity: .75;
+    transition: opacity .4s;
 }
 
 div.overlay {
     align-items: center;
     background-color: var(--lightest-alpha);
+    cursor: pointer;
     display: none;
     height: 100%;
     justify-content: center;
@@ -109,6 +135,7 @@ div.overlay div {
 }
 
 div.overlay div img {
+    cursor: default;
     max-height: 100%;
     max-width: 100%;
 }
@@ -122,6 +149,11 @@ div.overlay div img {
 @media (max-width: 425px) {
     div.images {
         column-count: 1;
+    }
+
+    div.images img:hover {
+        cursor: default;
+        opacity: 1;
     }
 
     div.overlay.show {
